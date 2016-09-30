@@ -12,7 +12,7 @@ using namespace std;
 
 int main()
 {
-	Bid::bidCounter=100;
+
 	Bid first("asjon", 'a',23.44,44);
 	cout<<first;
 	return 0;

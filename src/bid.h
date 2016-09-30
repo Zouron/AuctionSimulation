@@ -27,14 +27,14 @@ public:
 	double getPrice(){return bidPrice;};
 	int getQuantity(){return bidQuantity;};
 };
-
+int Bid::bidCounter=100;
 Bid::Bid(string name,char type, double price, int quantity)
 {
 	traderName = name;
 	bidType = type;
 	bidPrice = price;
 	bidQuantity = quantity;
-	bidId = bidCounter++;
+	bidId = Bid::bidCounter++;
 }
 
 ostream &operator<<(ostream &output, const Bid &b)
