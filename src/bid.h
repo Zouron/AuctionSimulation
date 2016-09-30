@@ -10,7 +10,8 @@
 
 class Bid
 {
-	static int bidCounter=100;
+	friend ostream &operator<<(ostream &, const Bid &);
+
 private:
 	string traderName;
 	int bidId;
@@ -18,6 +19,7 @@ private:
 	double bidPrice;
 	int bidQuantity;
 public:
+	static int bidCounter;
 	Bid(string,char,double,int);
 	string getName(){return traderName;};
 	int getId(){return bidId;};
@@ -33,6 +35,12 @@ Bid::Bid(string name,char type, double price, int quantity)
 	bidPrice = price;
 	bidQuantity = quantity;
 	bidId = bidCounter++;
+}
+
+ostream &operator<<(ostream &output, const Bid &b)
+{
+	output<<b.traderName<<" "<<b.bidId<<" "<<b.bidType<<" "<<b.bidPrice<<" "<<b.bidQuantity<<endl;
+	return output;
 }
 
 
