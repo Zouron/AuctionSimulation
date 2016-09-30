@@ -9,6 +9,7 @@
 #include<string>
 using namespace std;
 #include "bid.h"
+#include "trader.h"
 
 int main()
 {
