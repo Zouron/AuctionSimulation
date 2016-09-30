@@ -10,19 +10,26 @@
 
 class Trader
 {
+private:
+	static const int MIN_PRICE;
+	static const int MAX_PRICE;
+	static const int MAX_QUANTITY;
+	static const int MIN_QUANTITY;
+
 protected:
 	string traderName;
 	char traderType;
-	const int MIN_Price = 55;
-	const int MAX_Price = 200;
-	const int MAX_QUANTITY = 200;
-	const int MIN_QUANTITY = 50;
+
 
 public:
+	//Trader(){};
 	virtual Bid generateBid()=0;
-	virtual ~Trader();
+	//virtual ~Trader()=0;
 
 };
 
-
+const int Trader::MIN_PRICE = 40;
+const int Trader::MAX_PRICE = 150;
+const int Trader::MAX_QUANTITY = 140;
+const int Trader::MIN_QUANTITY = 10;
 #endif /* TRADER_H_ */
