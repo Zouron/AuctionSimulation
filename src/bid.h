@@ -10,20 +10,30 @@
 
 class Bid
 {
+	static int bidCounter=100;
 private:
 	string traderName;
 	int bidId;
 	char bidType;
-	double price;
-	int quantity;
+	double bidPrice;
+	int bidQuantity;
 public:
-	Bid();
+	Bid(string,char,double,int);
 	string getName(){return traderName;};
 	int getId(){return bidId;};
 	char getType(){return bidType;};
-	double getPrice(){return price;};
-	int getQuantity(){return quantity;};
+	double getPrice(){return bidPrice;};
+	int getQuantity(){return bidQuantity;};
 };
+
+Bid::Bid(string name,char type, double price, int quantity)
+{
+	traderName = name;
+	bidType = type;
+	bidPrice = price;
+	bidQuantity = quantity;
+	bidId = bidCounter++;
+}
 
 
 
