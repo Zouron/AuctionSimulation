@@ -10,6 +10,7 @@
 
 class Buyer: public Trader
 {
+	static int counter;
 public:
 	Bid generateBid();
 	~Buyer(){}
@@ -17,9 +18,14 @@ public:
 
 };
 
+int Buyer::counter = 0;
+
 Bid Buyer::generateBid()
 {
-	Bid bid("jason",'B',32.44,20);
+	//srand(time(NULL));
+	float randomPrice = Trader::MIN_PRICE + static_cast<float>(rand())/(static_cast<float>(RAND_MAX/(Trader::MAX_PRICE-Trader::MIN_PRICE)));
+	int randomQuantity = rand() % (Trader::MAX_QUANTITY - Trader::MIN_QUANTITY) + 1 + Trader::MIN_QUANTITY;
+	Bid bid("Buyer"+to_string(Buyer::counter++),'B',randomPrice,randomQuantity);
 	return bid;
 
 

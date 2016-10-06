@@ -10,9 +10,9 @@
 
 class Trader
 {
-private:
-	static const int MIN_PRICE;
-	static const int MAX_PRICE;
+protected:
+	static const float MIN_PRICE;
+	static const float MAX_PRICE;
 	static const int MAX_QUANTITY;
 	static const int MIN_QUANTITY;
 
@@ -28,8 +28,8 @@ public:
 
 };
 
-const int Trader::MIN_PRICE = 50;
-const int Trader::MAX_PRICE = 150;
+const float Trader::MIN_PRICE = 50;
+const float Trader::MAX_PRICE = 150;
 const int Trader::MAX_QUANTITY = 50;
 const int Trader::MIN_QUANTITY = 1;
 #endif /* TRADER_H_ */

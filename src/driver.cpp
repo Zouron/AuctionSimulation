@@ -7,6 +7,7 @@
 
 #include<iostream>
 #include<string>
+#include<ctime>
 using namespace std;
 #include "bid.h"
 #include "trader.h"
@@ -17,12 +18,15 @@ using namespace std;
 
 int main()
 {
+	srand(time(NULL));
 	Buyer jason;
-	Seller khush;
+	Buyer khush;
+	Seller bailey;
 	//jason.generateBid();
 	//Bid first("asjon", 'a',23.44,44);
 	cout<<jason.generateBid();
 	cout<<khush.generateBid();
+	cout<<bailey.generateBid();
 	return 0;
 }
 

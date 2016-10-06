@@ -10,15 +10,20 @@
 
 class Seller:public Trader
 {
+	static int counter;
 public:
 	Bid generateBid();
 	~Seller(){}
 
 };
 
+int Seller::counter = 0;
+
 Bid Seller::generateBid()
 {
-	Bid bid("Jason",'S',44.33,12);
+	float randomPrice = Trader::MIN_PRICE + static_cast<float>(rand())/(static_cast<float>(RAND_MAX/(Trader::MAX_PRICE-Trader::MIN_PRICE)));
+	int randomQuantity = rand() % (Trader::MAX_QUANTITY - Trader::MIN_QUANTITY) + 1 + Trader::MIN_QUANTITY;
+	Bid bid("Seller"+to_string(Seller::counter++),'A',randomPrice,randomQuantity);
 	return bid;
 }
 

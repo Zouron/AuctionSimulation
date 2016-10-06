@@ -16,7 +16,7 @@ private:
 	string traderName;
 	int bidId;
 	char bidType;
-	double bidPrice;
+	float bidPrice;
 	int bidQuantity;
 public:
 	static int bidCounter;
