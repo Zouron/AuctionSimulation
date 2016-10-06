@@ -30,7 +30,8 @@ void Auctioneer::listItems()
 {
 	while(!buyBids.empty())
 	{
-		cout<<buyBids.pop()<<endl;
+		cout<<buyBids.front();
+		buyBids.pop();
 	}
 }
 
