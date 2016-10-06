@@ -14,7 +14,7 @@ using namespace std;
 #include "trader.h"
 #include "buyer.h"
 #include "seller.h"
-
+#include "match.h"
 #include <vector>
 #include<queue>
 #include "auctioneer.h"
