@@ -28,9 +28,14 @@ public:
 	float getPrice(){return bidPrice;};
 	int getQuantity(){return bidQuantity;};
 	bool operator<(const Bid&)const;
-	//bool operator==(co)
+	void adjustQuantity(int);
 };
 int Bid::bidCounter=100;
+
+void Bid::adjustQuantity(int amount)
+{
+	bidQuantity-=amount;
+}
 
 bool Bid::operator<(const Bid& right) const
 {
@@ -59,7 +64,7 @@ Bid::Bid()
 
 ostream &operator<<(ostream &output, const Bid &b)
 {
-	output<<b.traderName<<" "<<b.bidId<<" "<<b.bidType<<" "<<b.bidPrice<<" "<<b.bidQuantity<<endl;
+	output<<b.traderName<<" "<<b.bidId<<" "<<b.bidType<<" "<<b.bidPrice<<" "<<b.bidQuantity;
 	return output;
 }
 

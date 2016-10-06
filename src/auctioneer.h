@@ -12,11 +12,18 @@ class Auctioneer
 {
 	priority_queue<Bid> buyBids;
 	priority_queue<Bid> sellBids;
+	vector<Match> matchedBids;
 public:
 	Auctioneer(vector<Buyer>&,vector<Seller>&);
 	void listBuyers();
 	void listSellers();
+	void makeTrades();
 };
+
+void Auctioneer::makeTrades()
+{
+
+}
 
 Auctioneer::Auctioneer(vector<Buyer>& buyers,vector<Seller>& sellers)
 {
@@ -31,7 +38,7 @@ void Auctioneer::listSellers()
 {
 	while(!sellBids.empty())
 	{
-		cout<<sellBids.top();
+		cout<<sellBids.top()<<endl;
 		sellBids.pop();
 	}
 }
@@ -40,7 +47,7 @@ void Auctioneer::listBuyers()
 {
 	while(!buyBids.empty())
 	{
-		cout<<buyBids.top();
+		cout<<buyBids.top()<<endl;;
 		buyBids.pop();
 	}
 }
