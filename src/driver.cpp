@@ -8,12 +8,16 @@
 #include<iostream>
 #include<string>
 #include<ctime>
+//#include<vector>
 using namespace std;
 #include "bid.h"
 #include "trader.h"
 #include "buyer.h"
 #include "seller.h"
-#include<vector>
+
+#include <vector>
+#include<queue>
+#include "auctioneer.h"
 
 //int Trader::MIN_PRICE = 50;
 const int NUM_SELLER = 10;
@@ -23,14 +27,13 @@ int main()
 	srand(time(NULL));
 	vector<Seller> bailey(NUM_SELLER);
 	vector<Buyer> jason(NUM_BUYER);
-	cout<<"bids:"<<Bid::bidCounter<<endl;
-	//Seller khush[5];
-	//for(int i=0;i<5;i++)
-		//cout<<jason[i].getBid();
-	for(int i=0;i<NUM_SELLER;i++)
-		cout<<bailey[i].getBid();
-	for(int i=0;i<NUM_BUYER;i++)
-		cout<<jason[i].getBid();
+
+
+	Auctioneer auctioneer(jason,bailey);
+	cout<<"Buyers:"<<endl;
+	auctioneer.listBuyers();
+	cout<<"Sellers:"<<endl;
+	auctioneer.listSellers();
 
 
 

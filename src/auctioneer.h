@@ -14,7 +14,8 @@ class Auctioneer
 	priority_queue<Bid> sellBids;
 public:
 	Auctioneer(vector<Buyer>&,vector<Seller>&);
-	void listItems();
+	void listBuyers();
+	void listSellers();
 };
 
 Auctioneer::Auctioneer(vector<Buyer>& buyers,vector<Seller>& sellers)
@@ -26,7 +27,16 @@ Auctioneer::Auctioneer(vector<Buyer>& buyers,vector<Seller>& sellers)
 	}
 }
 
-void Auctioneer::listItems()
+void Auctioneer::listSellers()
+{
+	while(!sellBids.empty())
+	{
+		cout<<sellBids.top();
+		sellBids.pop();
+	}
+}
+
+void Auctioneer::listBuyers()
 {
 	while(!buyBids.empty())
 	{
