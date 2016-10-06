@@ -10,8 +10,8 @@
 
 class Auctioneer
 {
-	queue<Bid> buyBids;
-	queue<Bid> sellBids;
+	priority_queue<Bid> buyBids;
+	priority_queue<Bid> sellBids;
 public:
 	Auctioneer(vector<Buyer>&,vector<Seller>&);
 	void listItems();
@@ -30,7 +30,7 @@ void Auctioneer::listItems()
 {
 	while(!buyBids.empty())
 	{
-		cout<<buyBids.front();
+		cout<<buyBids.top();
 		buyBids.pop();
 	}
 }
