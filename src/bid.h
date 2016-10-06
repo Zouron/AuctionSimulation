@@ -25,10 +25,21 @@ public:
 	string getName(){return traderName;};
 	int getId(){return bidId;};
 	char getType(){return bidType;};
-	double getPrice(){return bidPrice;};
+	float getPrice(){return bidPrice;};
 	int getQuantity(){return bidQuantity;};
+	bool operator<(const Bid&)const;
+	//bool operator==(co)
 };
 int Bid::bidCounter=100;
+
+bool Bid::operator<(const Bid& right) const
+{
+	if (this->bidType=='B')
+		return this->bidPrice <= right.bidPrice;
+	return this->bidPrice >= right.bidPrice;
+}
+
+
 Bid::Bid(string name,char type, double price, int quantity)
 {
 	traderName = name;
