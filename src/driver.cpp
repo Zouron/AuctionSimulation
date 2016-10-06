@@ -18,9 +18,11 @@ using namespace std;
 int main()
 {
 	Buyer jason;
+	Seller khush;
 	//jason.generateBid();
 	//Bid first("asjon", 'a',23.44,44);
 	cout<<jason.generateBid();
+	cout<<khush.generateBid();
 	return 0;
 }
 

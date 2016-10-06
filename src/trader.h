@@ -24,12 +24,12 @@ protected:
 public:
 	//Trader(){};
 	virtual Bid generateBid()=0;
-	//virtual ~Trader()=0;
+	virtual ~Trader(){}
 
 };
 
-const int Trader::MIN_PRICE = 40;
+const int Trader::MIN_PRICE = 50;
 const int Trader::MAX_PRICE = 150;
-const int Trader::MAX_QUANTITY = 140;
-const int Trader::MIN_QUANTITY = 10;
+const int Trader::MAX_QUANTITY = 50;
+const int Trader::MIN_QUANTITY = 1;
 #endif /* TRADER_H_ */

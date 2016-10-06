@@ -10,9 +10,17 @@
 
 class Seller:public Trader
 {
+public:
+	Bid generateBid();
+	~Seller(){}
 
 };
 
+Bid Seller::generateBid()
+{
+	Bid bid("Jason",'S',44.33,12);
+	return bid;
+}
 
 
 #endif /* SELLER_H_ */

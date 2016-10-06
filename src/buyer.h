@@ -12,13 +12,14 @@ class Buyer: public Trader
 {
 public:
 	Bid generateBid();
-	~Buyer(){};
-	//Buyer(){};
+	~Buyer(){}
+
+
 };
 
 Bid Buyer::generateBid()
 {
-	Bid bid("jason",'b',32.44,20);
+	Bid bid("jason",'B',32.44,20);
 	return bid;
 
 
