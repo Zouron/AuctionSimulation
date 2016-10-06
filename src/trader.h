@@ -23,10 +23,18 @@ protected:
 
 public:
 	//Trader(){};
-	virtual Bid generateBid()=0;
+	virtual Bid generateBid();
 	virtual ~Trader(){}
 
 };
+
+Bid Trader::generateBid()
+{
+	float randomPrice = Trader::MIN_PRICE + static_cast<float>(rand())/(static_cast<float>(RAND_MAX/(Trader::MAX_PRICE-Trader::MIN_PRICE)));
+	int randomQuantity = rand() % (Trader::MAX_QUANTITY - Trader::MIN_QUANTITY) + 1 + Trader::MIN_QUANTITY;
+	Bid bid(traderName,traderType,randomPrice,randomQuantity);
+	return bid;
+}
 
 const float Trader::MIN_PRICE = 50;
 const float Trader::MAX_PRICE = 150;

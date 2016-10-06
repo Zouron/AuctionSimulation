@@ -13,20 +13,19 @@ using namespace std;
 #include "trader.h"
 #include "buyer.h"
 #include "seller.h"
+#include<vector>
 
 //int Trader::MIN_PRICE = 50;
 
 int main()
 {
 	srand(time(NULL));
-	Buyer jason;
-	Buyer khush;
-	Seller bailey;
-	//jason.generateBid();
-	//Bid first("asjon", 'a',23.44,44);
-	cout<<jason.generateBid();
-	cout<<khush.generateBid();
-	cout<<bailey.generateBid();
+	Buyer jason[5];
+	Seller khush[5];
+	for(int i=0;i<5;i++)
+		cout<<jason[i].getBid();
+	for(int i=0;i<5;i++)
+		cout<<khush[i].getBid();
 	return 0;
 }
 

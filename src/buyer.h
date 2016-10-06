@@ -11,33 +11,26 @@
 class Buyer: public Trader
 {
 	static int counter;
+private:
+	Bid bid;
 public:
-	Bid generateBid();
+	Buyer();
+	Bid getBid();
 	~Buyer(){}
-
 
 };
 
 int Buyer::counter = 0;
-
-Bid Buyer::generateBid()
+Buyer::Buyer()
 {
-	//srand(time(NULL));
-	float randomPrice = Trader::MIN_PRICE + static_cast<float>(rand())/(static_cast<float>(RAND_MAX/(Trader::MAX_PRICE-Trader::MIN_PRICE)));
-	int randomQuantity = rand() % (Trader::MAX_QUANTITY - Trader::MIN_QUANTITY) + 1 + Trader::MIN_QUANTITY;
-	Bid bid("Buyer"+to_string(Buyer::counter++),'B',randomPrice,randomQuantity);
-	return bid;
-
-
+	traderName="Buyer"+ to_string(Buyer::counter++);
+	traderType='B';
+	bid = generateBid();
 }
-
-
-//Buyer::~Buyer()
-//{
-//	cout<<"";
-//
-//}
-
+Bid Buyer::getBid()
+{
+	return bid;
+}
 
 
 #endif /* BUYER_H_ */

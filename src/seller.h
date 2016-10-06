@@ -11,21 +11,26 @@
 class Seller:public Trader
 {
 	static int counter;
+private:
+	Bid bid;
 public:
-	Bid generateBid();
+	Seller();
+	Bid getBid();
 	~Seller(){}
 
 };
-
-int Seller::counter = 0;
-
-Bid Seller::generateBid()
+Bid Seller::getBid()
 {
-	float randomPrice = Trader::MIN_PRICE + static_cast<float>(rand())/(static_cast<float>(RAND_MAX/(Trader::MAX_PRICE-Trader::MIN_PRICE)));
-	int randomQuantity = rand() % (Trader::MAX_QUANTITY - Trader::MIN_QUANTITY) + 1 + Trader::MIN_QUANTITY;
-	Bid bid("Seller"+to_string(Seller::counter++),'A',randomPrice,randomQuantity);
 	return bid;
 }
+
+Seller::Seller()
+{
+	traderName= "Seller" + to_string(Seller::counter++);
+	traderType = 'A';
+	bid = generateBid();
+}
+int Seller::counter = 0;
 
 
 #endif /* SELLER_H_ */
