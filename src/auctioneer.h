@@ -29,7 +29,7 @@ void Auctioneer::listMatches()
 {
 	for(int i=0; i< matchedBids.size(); i++)
 	{
-		cout<<matchedBids[i];
+		matchedBids[i].displayMatch();
 	}
 }
 
@@ -37,7 +37,7 @@ void Auctioneer::listUnmatchedBids()
 {
 	for(int i=0; i< unMatchedBids.size(); i++)
 	{
-		cout<<unMatchedBids[i];
+		unMatchedBids[i].displayMatch();
 	}
 }
 
@@ -45,6 +45,7 @@ void Auctioneer::makeTrades()
 {
 	while (!sellingBids.empty() && !buyingBids.empty())
 	{
+		//cout<<"Here"<<endl;
 		Bid tempSellBid = sellingBids.top();
 		Bid tempBuyBid = buyingBids.top();
 		if(tempSellBid.getPrice() <= tempBuyBid.getPrice())
@@ -63,7 +64,7 @@ void Auctioneer::addToMatch(Bid buyBid, Bid sellBid)
 	if(quantityDifference < 0)
 	{
 		buyBid.setQuantity(sellBid.getQuantity());
-		tempMatch(buyBid,sellBid);
+		tempMatch.setMatch(buyBid,sellBid);
 		matchedBids.push_back(tempMatch);
 		buyBid.setQuantity(-quantityDifference);
 		buyingBids.pop();
@@ -73,7 +74,7 @@ void Auctioneer::addToMatch(Bid buyBid, Bid sellBid)
 	else if(quantityDifference > 0)
 	{
 		sellBid.setQuantity(buyBid.getQuantity());
-		tempMatch(buyBid, sellBid);
+		tempMatch.setMatch(buyBid, sellBid);
 		matchedBids.push_back(tempMatch);
 		sellBid.setQuantity(quantityDifference);
 		sellingBids.pop();
@@ -82,7 +83,7 @@ void Auctioneer::addToMatch(Bid buyBid, Bid sellBid)
 	}
 	else
 	{
-		tempMatch(buyBid,sellBid);
+		tempMatch.setMatch(buyBid,sellBid);
 		matchedBids.push_back(tempMatch);
 		sellingBids.pop();
 		buyingBids.pop();
@@ -101,20 +102,22 @@ Auctioneer::Auctioneer(vector<Buyer>& buyers,vector<Seller>& sellers)
 
 void Auctioneer::listSellers()
 {
-	while(!sellingBids.empty())
+	priority_queue<Bid> tempQueue = sellingBids;
+	while(!tempQueue.empty())
 	{
-		cout<<sellingBids.top()<<endl;
-		sellingBids.pop();
+		cout<<tempQueue.top()<<endl;
+		tempQueue.pop();
 	}
 }
 
 void Auctioneer::listBuyers()
 {
-	while(!buyingBids.empty())
-	{
-		cout<<buyingBids.top()<<endl;;
-		buyingBids.pop();
-	}
+	priority_queue<Bid> tempQueue = buyingBids;
+		while(!tempQueue.empty())
+		{
+			cout<<tempQueue.top()<<endl;
+			tempQueue.pop();
+		}
 }
 
 

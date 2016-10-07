@@ -14,11 +14,18 @@ private:
 	Bid seller;
 	Bid buyer;
 public:
-	Match(Bid&,Bid&);
+	void setMatch(Bid&,Bid&);
+	Match();
 	void displayMatch();
 };
 
-Match::Match(Bid& b, Bid& s)
+Match::Match()
+{
+	Bid seller;
+	Bid buyer;
+}
+
+void Match::setMatch(Bid& b, Bid& s)
 {
 	seller = s;
 	buyer = b;
@@ -26,7 +33,7 @@ Match::Match(Bid& b, Bid& s)
 
 void Match::displayMatch()
 {
-	cout<<buyer<<" <--> "<<seller;
+	cout<<buyer<<" <--> "<<seller<<endl;
 }
 
 

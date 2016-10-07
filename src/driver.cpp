@@ -36,6 +36,12 @@ int main()
 	auctioneer.listSellers();
 	auctioneer.makeTrades();
 
+	cout<<"Matched:"<<endl;
+	auctioneer.listMatches();
+
+	cout<<"Un-Matched:"<<endl;
+	auctioneer.listUnmatchedBids();
+
 
 
 	return 0;
