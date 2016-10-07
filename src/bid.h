@@ -28,13 +28,13 @@ public:
 	float getPrice(){return bidPrice;};
 	int getQuantity(){return bidQuantity;};
 	bool operator<(const Bid&)const;
-	void adjustQuantity(int);
+	void setQuantity(int);
 };
 int Bid::bidCounter=100;
 
-void Bid::adjustQuantity(int amount)
+void Bid::setQuantity(int amount)
 {
-	bidQuantity-=amount;
+	bidQuantity=amount;
 }
 
 bool Bid::operator<(const Bid& right) const

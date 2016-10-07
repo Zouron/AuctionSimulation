@@ -34,6 +34,7 @@ int main()
 	auctioneer.listBuyers();
 	cout<<"Sellers:"<<endl;
 	auctioneer.listSellers();
+	auctioneer.makeTrades();
 
 
 
