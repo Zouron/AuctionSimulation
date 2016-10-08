@@ -7,8 +7,7 @@
 
 #ifndef SIMULATOR_H_
 #define SIMULATOR_H_
-const int NUM_Seller = 10;
-const int NUM_Buyer = 10;
+
 class Simulator
 {
 private:
@@ -24,8 +23,8 @@ public:
 Simulator::Simulator()
 {
 	srand(time(NULL));
-	vector<Buyer> b(10);
-	vector<Seller> s(10);
+	vector<Buyer> b(NUM_SELLER);
+	vector<Seller> s(NUM_BUYER);
 	sellers = s;
 	buyers = b;
 	Auctioneer auctioneer2(buyers,sellers);
@@ -35,9 +34,6 @@ Simulator::Simulator()
 
 void Simulator::openMarket()
 {
-	srand(time(NULL));
-	cout<<"Buyers:"<<endl;
-	//auctioneer(buyers,sellers);
 	cout<<"Buyers:"<<endl;
 	auctioneer.listBuyers();
 
@@ -49,7 +45,7 @@ void Simulator::openMarket()
 	cout<<endl<<"Matched bids:"<<endl;
 	auctioneer.listMatches();
 
-	cout<<"Un-Matched bids"<<endl;
+	cout<<endl<<"Un-Matched bids:"<<endl;
 	auctioneer.listUnmatchedBids();
 
 }
