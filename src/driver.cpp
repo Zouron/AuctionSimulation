@@ -4,7 +4,8 @@
  *  Created on: 30Sep.,2016
  *      Author: jasonrego
  */
-
+extern const int NUM_SELLER = 10;
+extern const int NUM_BUYER = 10;
 #include<iostream>
 #include<string>
 #include<ctime>
@@ -21,8 +22,7 @@ using namespace std;
 #include "simulator.h"
 
 //int Trader::MIN_PRICE = 50;
-const int NUM_SELLER = 10;
-const int NUM_BUYER = 10;
+
 int main()
 {
 	Simulator s;

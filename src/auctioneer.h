@@ -18,6 +18,7 @@ private:
 	void addToMatch(Bid,Bid);
 public:
 	Auctioneer(vector<Buyer>&,vector<Seller>&);
+	Auctioneer(){}
 	void listBuyers();
 	void listSellers();
 	void makeTrades();

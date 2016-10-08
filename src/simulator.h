@@ -11,19 +11,27 @@ const int NUM_Seller = 10;
 const int NUM_Buyer = 10;
 class Simulator
 {
-	vector<Seller> sellers(NUM_Seller);
-	vector<Buyer> buyers(NUM_Buyer);
+private:
+	vector<Seller> sellers(10);
+	vector<Buyer> buyers;
 	Auctioneer auctioneer;
 public:
 	void openMarket();
+	Simulator();
 
 };
+
+Simulator::Simulator()
+{
+	Auctioneer auctioneer(buyers,sellers);
+}
+
 
 void Simulator::openMarket()
 {
 	srand(time(NULL));
 	cout<<"Buyers:"<<endl;
-	auctioneer(buyers,sellers);
+	//auctioneer(buyers,sellers);
 	cout<<"Buyers:"<<endl;
 	auctioneer.listBuyers();
 
