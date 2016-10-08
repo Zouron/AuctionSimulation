@@ -12,7 +12,7 @@ const int NUM_Buyer = 10;
 class Simulator
 {
 private:
-	vector<Seller> sellers(10);
+	vector<Seller> sellers;
 	vector<Buyer> buyers;
 	Auctioneer auctioneer;
 public:
@@ -23,7 +23,13 @@ public:
 
 Simulator::Simulator()
 {
-	Auctioneer auctioneer(buyers,sellers);
+	srand(time(NULL));
+	vector<Buyer> b(10);
+	vector<Seller> s(10);
+	sellers = s;
+	buyers = b;
+	Auctioneer auctioneer2(buyers,sellers);
+	auctioneer = auctioneer2;
 }
 
 
