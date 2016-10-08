@@ -18,31 +18,15 @@ using namespace std;
 #include <vector>
 #include<queue>
 #include "auctioneer.h"
+#include "simulator.h"
 
 //int Trader::MIN_PRICE = 50;
 const int NUM_SELLER = 10;
 const int NUM_BUYER = 10;
 int main()
 {
-	srand(time(NULL));
-	vector<Seller> bailey(NUM_SELLER);
-	vector<Buyer> jason(NUM_BUYER);
-
-
-	Auctioneer auctioneer(jason,bailey);
-	cout<<"Buyers:"<<endl;
-	auctioneer.listBuyers();
-	cout<<"Sellers:"<<endl;
-	auctioneer.listSellers();
-	auctioneer.makeTrades();
-
-	cout<<"Matched:"<<endl;
-	auctioneer.listMatches();
-
-	cout<<"Un-Matched:"<<endl;
-	auctioneer.listUnmatchedBids();
-
-
+	Simulator s;
+	s.openMarket();
 
 	return 0;
 }
