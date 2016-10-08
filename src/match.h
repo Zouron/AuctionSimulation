@@ -33,7 +33,7 @@ void Match::setMatch(Bid& b, Bid& s)
 
 void Match::displayMatch()
 {
-	cout<<buyer<<" <--> "<<seller<<endl;
+	cout<<seller<<" <--> "<<buyer<<endl;
 }
 
 

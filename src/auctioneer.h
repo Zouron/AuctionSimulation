@@ -14,7 +14,7 @@ private:
 	priority_queue<Bid> buyingBids;
 	priority_queue<Bid> sellingBids;
 	vector<Match> matchedBids;
-	vector<Match> unMatchedBids;
+	vector<Bid> unMatchedBids;
 	void addToMatch(Bid,Bid);
 public:
 	Auctioneer(vector<Buyer>&,vector<Seller>&);
@@ -37,7 +37,7 @@ void Auctioneer::listUnmatchedBids()
 {
 	for(int i=0; i< unMatchedBids.size(); i++)
 	{
-		unMatchedBids[i].displayMatch();
+		cout<<unMatchedBids[i]<<endl;
 	}
 }
 
@@ -45,21 +45,29 @@ void Auctioneer::makeTrades()
 {
 	while (!sellingBids.empty() && !buyingBids.empty())
 	{
-		//cout<<"Here"<<endl;
 		Bid tempSellBid = sellingBids.top();
 		Bid tempBuyBid = buyingBids.top();
 		if(tempSellBid.getPrice() <= tempBuyBid.getPrice())
 		{
-			addToMatch(tempSellBid, tempBuyBid);
+			addToMatch(tempBuyBid, tempSellBid);
 		}
 		else
+		{
+			unMatchedBids.push_back(tempBuyBid);
 			buyingBids.pop();
+		}
+	}
+
+	while (!sellingBids.empty())
+	{
+		unMatchedBids.push_back(sellingBids.top());
+		sellingBids.pop();
 	}
 }
 
 void Auctioneer::addToMatch(Bid buyBid, Bid sellBid)
 {
-	int quantityDifference = sellBid.getPrice() - buyBid.getPrice();
+	int quantityDifference = sellBid.getQuantity() - buyBid.getQuantity();
 	Match tempMatch;
 	if(quantityDifference < 0)
 	{
