@@ -64,7 +64,7 @@ Bid::Bid()
 
 ostream &operator<<(ostream &output, const Bid &b)
 {
-	output<<b.traderName<<" "<<b.bidId<<" "<<b.bidType<<" "<<b.bidPrice<<" "<<b.bidQuantity;
+	output<<setw(7)<<b.traderName<<" "<<b.bidId<<" "<<b.bidType<<" "<<setw(7)<<b.bidPrice<<" "<<setw(2)<<b.bidQuantity;
 	return output;
 }
 

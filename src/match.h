@@ -33,7 +33,11 @@ void Match::setMatch(Bid& b, Bid& s)
 
 void Match::displayMatch()
 {
-	cout<<seller<<" <--> "<<buyer<<endl;
+	cout<<setfill(' ')
+		<<seller<<" <--> "
+		<<setw(5)<<buyer<<"; Clearing price: "
+		<<(seller.getPrice() + buyer.getPrice())/2
+		<<endl;
 }
 
 
