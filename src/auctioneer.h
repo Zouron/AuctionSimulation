@@ -19,26 +19,26 @@ private:
 public:
 	Auctioneer(vector<Buyer>&,vector<Seller>&);
 	Auctioneer(){}
-	void listBuyers();
-	void listSellers();
+	void listBuyers(ofstream&);
+	void listSellers(ofstream&);
 	void makeTrades();
-	void listMatches();
-	void listUnmatchedBids();
+	void listMatches(ofstream&);
+	void listUnmatchedBids(ofstream&);
 };
 
-void Auctioneer::listMatches()
+void Auctioneer::listMatches(ofstream &fOut)
 {
 	for(int i=0; i< matchedBids.size(); i++)
 	{
-		matchedBids[i].displayMatch();
+		matchedBids[i].displayMatch(fOut);
 	}
 }
 
-void Auctioneer::listUnmatchedBids()
+void Auctioneer::listUnmatchedBids(ofstream &fOut)
 {
 	for(int i=0; i< unMatchedBids.size(); i++)
 	{
-		cout<<unMatchedBids[i]<<endl;
+		fOut<<unMatchedBids[i]<<endl;
 	}
 }
 
@@ -109,22 +109,22 @@ Auctioneer::Auctioneer(vector<Buyer>& buyers,vector<Seller>& sellers)
 	}
 }
 
-void Auctioneer::listSellers()
+void Auctioneer::listSellers(ofstream &fOut)
 {
 	priority_queue<Bid> tempQueue = sellingBids;
 	while(!tempQueue.empty())
 	{
-		cout<<tempQueue.top()<<endl;
+		fOut<<tempQueue.top()<<endl;
 		tempQueue.pop();
 	}
 }
 
-void Auctioneer::listBuyers()
+void Auctioneer::listBuyers(ofstream &fOut)
 {
 	priority_queue<Bid> tempQueue = buyingBids;
 		while(!tempQueue.empty())
 		{
-			cout<<tempQueue.top()<<endl;
+			fOut<<tempQueue.top()<<endl;
 			tempQueue.pop();
 		}
 }

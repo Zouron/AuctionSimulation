@@ -34,19 +34,25 @@ Simulator::Simulator()
 
 void Simulator::openMarket()
 {
-	cout<<"Buyers:"<<endl;
-	auctioneer.listBuyers();
+	ofstream fileOut;
+	fileOut.open("result.txt");
 
-	cout<<endl<<"Sellers:"<<endl;
-	auctioneer.listSellers();
+
+	fileOut<<"Buyers:"<<endl;
+	auctioneer.listBuyers(fileOut);
+
+	fileOut<<endl<<"Sellers:"<<endl;
+	auctioneer.listSellers(fileOut);
 
 	auctioneer.makeTrades();
 
-	cout<<endl<<"Matched bids:"<<endl;
-	auctioneer.listMatches();
+	fileOut<<endl<<"Matched bids:"<<endl;
+	auctioneer.listMatches(fileOut);
 
-	cout<<endl<<"Un-Matched bids:"<<endl;
-	auctioneer.listUnmatchedBids();
+	fileOut<<endl<<"Un-Matched bids:"<<endl;
+	auctioneer.listUnmatchedBids(fileOut);
+
+	fileOut.close();
 
 }
 

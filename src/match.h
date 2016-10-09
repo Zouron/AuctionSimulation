@@ -16,7 +16,7 @@ private:
 public:
 	void setMatch(Bid&,Bid&);
 	Match();
-	void displayMatch();
+	void displayMatch(ofstream&);
 };
 
 Match::Match()
@@ -31,9 +31,9 @@ void Match::setMatch(Bid& b, Bid& s)
 	buyer = b;
 }
 
-void Match::displayMatch()
+void Match::displayMatch(ofstream &fOut)
 {
-	cout<<setfill(' ')
+	fOut<<setfill(' ')
 		<<seller<<" <--> "
 		<<setw(5)<<buyer<<"; Clearing price: "
 		<<(seller.getPrice() + buyer.getPrice())/2

@@ -10,6 +10,7 @@ extern const int NUM_BUYER = 10;
 #include<string>
 #include<ctime>
 #include <iomanip>
+#include <fstream>
 //#include<vector>
 using namespace std;
 #include "bid.h"
